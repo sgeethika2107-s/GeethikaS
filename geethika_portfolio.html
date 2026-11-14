@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Geethika's personal portfolio website.">
+  <title>Geethika | Future Web Developer</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    :root {
+      --navy: #0b1220;
+      --card: #141f32;
+      --orange: #ff8c42;
+      --white: #f5f7fa;
+      --muted: #aab4c5;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      line-height: 1.7;
+    }
+    a { text-decoration: none; color: inherit; }
+    .container { width: 90%; max-width: 1100px; margin: auto; }
+    .section { padding: 90px 0; scroll-margin-top: 75px; }
+    .section-title { text-align: center; font-size: 2.2rem; margin-bottom: 40px; }
+    .section-title span, .logo span, .hero h1 span { color: var(--orange); }
+    header {
+      background: rgba(11, 18, 32, .96);
+      position: sticky; top: 0; z-index: 100;
+      border-bottom: 1px solid #26344a;
+    }
+    nav { min-height: 70px; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.5rem; font-weight: bold; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a:hover { color: var(--orange); }
+    .menu-btn {
+      display: none; border: 0; background: none; color: white;
+      font-size: 1.8rem; cursor: pointer;
+    }
+    .hero {
+      min-height: 85vh; display: flex; align-items: center;
+      background: radial-gradient(circle at 85% 30%, #25344e 0%, transparent 35%);
+    }
+    .hero-content { max-width: 720px; }
+    .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.2; margin: 15px 0; }
+    .hero p { color: var(--muted); font-size: 1.1rem; margin-bottom: 30px; }
+    .tagline { color: var(--orange); font-weight: bold; }
+    .btn {
+      display: inline-block; padding: 12px 25px; background: var(--orange);
+      color: #101827; border-radius: 6px; font-weight: bold; transition: .3s;
+    }
+    .btn:hover { background: #ffad73; transform: translateY(-3px); }
+    .outline-btn { background: transparent; border: 1px solid var(--orange); color: var(--orange); margin-left: 10px; }
+    .about-content, .contact-content { max-width: 750px; margin: auto; text-align: center; }
+    .about-content p, .contact-content p { color: var(--muted); font-size: 1.05rem; }
+    .skills-grid, .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .skill {
+      background: var(--card); padding: 25px; border-radius: 10px; text-align: center;
+      border: 1px solid #26344a; transition: .3s;
+    }
+    .skill:hover, .project-card:hover { border-color: var(--orange); transform: translateY(-5px); }
+    .skill h3, .project-card a { color: var(--orange); }
+    .skill p, .project-card p { color: var(--muted); }
+    .project-card {
+      background: var(--card); padding: 28px; border-radius: 10px;
+      border: 1px solid #26344a; transition: .3s;
+    }
+    .project-number { font-size: 2rem; color: var(--orange); font-weight: bold; }
+    .project-card h3 { margin: 12px 0; }
+    .project-card p { margin-bottom: 18px; }
+    .project-card a { font-weight: bold; }
+    .contact-content p { margin-bottom: 25px; }
+    .contact-links { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-top: 25px; }
+    .contact-links a { color: var(--orange); }
+    footer { text-align: center; padding: 25px; color: var(--muted); border-top: 1px solid #26344a; }
+    @media (max-width: 768px) {
+      .menu-btn { display: block; }
+      .nav-links {
+        display: none; position: absolute; top: 70px; left: 0; width: 100%;
+        background: #141f32; flex-direction: column; padding: 25px; gap: 20px;
+      }
+      .nav-links.active { display: flex; }
+      .skills-grid, .projects-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero { min-height: 75vh; }
+    }
+    @media (max-width: 500px) {
+      .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+      .section { padding: 65px 0; }
+      .section-title { font-size: 1.8rem; }
+      .outline-btn { margin: 12px 0 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container" aria-label="Main navigation">
+      <a href="#home" class="logo">Geethika<span>.</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation menu"
+        aria-expanded="false" aria-controls="navLinks">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <p class="tagline">HELLO, WELCOME TO MY PORTFOLIO!</p>
+        <h1>Hi, I'm <span>Geethika</span><br>A Future Web Developer.</h1>
+        <p>
+          I am a passionate beginner developer who enjoys creating beautiful
+          websites and learning new technologies. I love turning creative
+          ideas into reality through code.
+        </p>
+        <a href="#projects" class="btn">View My Work</a>
+        <a href="#contact" class="btn outline-btn">Contact Me</a>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section-title">About <span>Me</span></h2>
+        <div class="about-content">
+          <p>
+            Hello! I am Geethika, an aspiring developer interested in web
+            development and technology. I have started my journey with HTML
+            and CSS and enjoy building creative, user-friendly websites.
+            I believe in learning by doing, improving my skills every day,
+            and working on exciting projects. My goal is to become a skilled
+            software developer.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <h2 class="section-title">My <span>Skills</span></h2>
+        <div class="skills-grid">
+          <div class="skill"><h3>HTML5</h3><p>Creating website structures.</p></div>
+          <div class="skill"><h3>CSS3</h3><p>Styling and responsive layouts.</p></div>
+          <div class="skill"><h3>JavaScript</h3><p>Learning interactive web development.</p></div>
+          <div class="skill"><h3>Python</h3><p>Basic programming and problem solving.</p></div>
+          <div class="skill"><h3>Java</h3><p>Learning object-oriented programming.</p></div>
+          <div class="skill"><h3>Problem Solving</h3><p>Logical thinking and creativity.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <h2 class="section-title">My <span>Projects</span></h2>
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-number">01</div>
+            <h3>Personal Portfolio</h3>
+            <p>A responsive personal website built using HTML and CSS to showcase my skills and work.</p>
+            <a href="#contact">Learn More →</a>
+          </article>
+          <article class="project-card">
+            <div class="project-number">02</div>
+            <h3>Landing Page</h3>
+            <p>A modern landing page with attractive styling, navigation and a responsive design.</p>
+            <a href="#contact">Learn More →</a>
+          </article>
+          <article class="project-card">
+            <div class="project-number">03</div>
+            <h3>Calculator</h3>
+            <p>A beginner-friendly calculator project designed to perform basic mathematical operations.</p>
+            <a href="#contact">Learn More →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact <span>Me</span></h2>
+        <div class="contact-content">
+          <p>
+            Thank you for visiting my portfolio! Feel free to contact me
+            if you want to connect, discuss projects or share ideas.
+          </p>
+          <!-- Replace this placeholder with your own email address. -->
+          <a href="mailto:yourname@example.com" class="btn">Send Me an Email</a>
+          <div class="contact-links">
+            <!-- Replace these links with your own profile URLs. -->
+            <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Geethika. All Rights Reserved.</p>
+    <p>Designed with care using HTML, CSS and JavaScript.</p>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    function closeMenu() {
+      navLinks.classList.remove("active");
+      menuBtn.setAttribute("aria-expanded", "false");
+      menuBtn.setAttribute("aria-label", "Open navigation menu");
+      menuBtn.textContent = "☰";
+    }
+
+    menuBtn.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("active");
+      menuBtn.setAttribute("aria-expanded", isOpen);
+      menuBtn.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+      );
+      menuBtn.textContent = isOpen ? "✕" : "☰";
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") closeMenu();
+    });
+  </script>
+</body>
+</html>
